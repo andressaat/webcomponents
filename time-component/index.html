@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Web Components</title>
+
+  <style>
+    body {
+      font-family: 'Helvetica Neue';
+    }
+  </style>
+
+  <script src="src/components/progress-bar/progress-bar.js"></script>
+  <script src="src/time.component.js"></script>
+</head>
+
+<body>
+  <h1>Web Components</h1>
+
+  <time-component time="1550501682980"></time-component>
+  <time-component time="2020-06-24T00:19:51.516Z"></time-component>
+  <time-component time="2020-06-23T50:17:03.232Z"></time-component>
+  <time-component time="2020-06-23T21:18:03.232Z"></time-component>
+  <time-component time="2020-06-23T20:29:03.232Z"></time-component>
+  <time-component time="2020-06-23T19:12:03.232Z"></time-component>
+  <time-component time="2020-06-23T18:32:03.232Z"></time-component>
+  <time-component time="2020-06-23T17:11:03.232Z"></time-component>
+  <progress-bar></progress-bar>
+
+  <script>
+    (function () {
+      var progress = document.querySelector('progress-bar'),
+        complete = 0;
+      var progressInterval = setInterval(() => {
+        complete += 1;
+        if (complete <= 100) {
+          progress.setAttribute('complete', complete);
+        } else {
+          clearInterval(progressInterval);
+        }
+      }, 100);
+    })();
+  </script>
+</body>
+
+</html>
